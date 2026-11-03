@@ -13,7 +13,7 @@ gem "puma", "~> 7.2.1"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 # Transpile app-like JavaScript with Shakapacker
-gem "shakapacker", "~> 8.0"
+gem "shakapacker", "~> 9.5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.7"
 gem "json", "~> 2.7"
