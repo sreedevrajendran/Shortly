@@ -1,6 +1,8 @@
 # Shortly ⚡
 
-A modern, fast, and secure URL shortener web application developed by **[Sreedev Rajendran](https://github.com/sreedevrajendran)**, built with **Ruby on Rails 7.2**, **React 17**, **Tailwind CSS**, and **Webpack 5 (via Shakapacker)**.
+A fast, responsive, and secure URL shortener web application built with **Ruby on Rails 7.2**, **React 17**, and **Tailwind CSS**.
+
+Originally created by **[Akhil G Krishnan](https://github.com/akhilgkrishnan)** and forked/modernized by **[Sreedev Rajendran](https://github.com/sreedevrajendran)**.
 
 [![Live Demo](https://img.shields.io/badge/Demo-Shortly_Live-6366f1?style=for-the-badge&logo=render&logoColor=white)](https://shortly-44br.onrender.com)
 [![GitHub CI](https://img.shields.io/github/actions/workflow/status/sreedevrajendran/Shortly/ci.yml?branch=main&style=for-the-badge&logo=github)](https://github.com/sreedevrajendran/Shortly/actions)
@@ -14,54 +16,58 @@ A modern, fast, and secure URL shortener web application developed by **[Sreedev
 
 ## 🌐 Live Demo
 
-Visit the live production application deployed on Render:
+Live production deployment on Render:
 👉 **[https://shortly-44br.onrender.com](https://shortly-44br.onrender.com)**
 
 ---
 
-## 👨‍💻 Developer Overview & Recent Enhancements
+## 📌 Project Background & Fork Notice
 
-Shortly was created and modernized by **Sreedev Rajendran** to provide an ultra-clean, reliable URL shortening service paired with real-time analytics, instant QR code distribution, and strict visitor privacy.
+This repository is a modernized fork of the original project by **[akhilgkrishnan](https://github.com/akhilgkrishnan/Shortly)**.
 
-### 🛠️ Key Improvements & Modernization Changes Made
+The application has been extensively refactored, upgraded, and secured to bring an unmaintained Rails 6.1 codebase up to modern web standards, resolve all known security vulnerabilities, and provide containerized cloud deployment.
 
-1. **Zero-Vulnerability Security Remediation (215 Advisories Resolved):**
-   - Eliminated all **215 GitHub Dependabot security vulnerabilities** across both the Ruby and npm ecosystems down to **0 open alerts**.
-   - Upgraded core gems to patch high-severity CVEs in Action View, Action Pack, Rails HTML Sanitizer, Puma, RDoc, and Rack.
-   - Upgraded `axios` to `1.8.2` and pinned modern secure releases for transitive packages (`cross-spawn`, `deepmerge`, `braces`, `micromatch`, `minimatch`, `postcss`, `semver`, `yaml`, `lodash`) via Yarn resolutions.
+---
 
-2. **Full Framework Modernization (Rails 7.2 & Ruby 3.2):**
-   - Upgraded the application stack from Rails 6.1 to **Rails 7.2.3.2** on **Ruby 3.2**.
-   - Modernized ActiveRecord database schemas, database configuration, and native gem drivers (`sqlite3 ~> 2.9`, `pg ~> 1.7`).
+## 🛠️ Changes & Enhancements Made (by Sreedev Rajendran)
 
-3. **Next-Generation Asset Pipeline (Shakapacker 9.7 + Webpack 5):**
-   - Replaced the deprecated `@rails/webpacker 5` (which relied on Webpack 4 and unmaintained Node.js polyfills) with **Shakapacker 9.7** and **Webpack 5.90+**.
-   - Removed obsolete OpenSSL legacy provider workarounds (`--openssl-legacy-provider`).
-   - Cleaned up Babel transpiler configuration with `@babel/preset-env` and `@babel/preset-react`.
-   - Added backward-compatible binstubs (`bin/webpack`, `bin/shakapacker`) ensuring smooth local and CI compilation.
+### 1. 🛡️ Complete Security Overhaul (215 Vulnerabilities Fixed)
+- Remediated all **215 GitHub Dependabot security alerts** across Ruby and npm dependencies down to **0 open alerts**.
+- Upgraded critical gems to eliminate vulnerabilities in Action View, Action Pack, Rails HTML Sanitizer, Puma, RDoc, and Rack.
+- Upgraded `axios` to `1.8.2` and pinned patched releases for transitive packages (`cross-spawn`, `deepmerge`, `braces`, `micromatch`, `minimatch`, `postcss`, `semver`, `yaml`, `lodash`) using Yarn resolutions.
 
-4. **Security & Privacy Hardening:**
-   - **Visitor Isolation:** Restructured visitor token assignment to prevent session crosstalk and ensure robust multi-tenant link privacy.
-   - **Strict URL Sanitization:** Hardened URL format validation to safeguard against invalid URI schemes and malformed inputs.
-   - **Unique Click Deduplication:** Implemented secure, HTTP-only cookie-based click tracking to accurately distinguish total clicks from unique visits over a 24-hour window.
+### 2. 🚀 Rails 7.2 & Ruby 3.2 Upgrade
+- Upgraded framework from Rails 6.1 to **Rails 7.2.3.2** on **Ruby 3.2**.
+- Updated ActiveRecord schemas, modern database configurations, and database driver gems (`sqlite3 ~> 2.9`, `pg ~> 1.7`).
 
-5. **CI/CD & DevOps Upgrades:**
-   - Integrated **GitHub Actions CI** running automated build, database preparation, asset compilation, and test execution on every commit.
-   - Added **GitHub CodeQL Advanced** security workflow for automated static application security testing (SAST).
-   - Hardened multi-stage **Dockerfile** with non-root security user (`rails:1000`) and streamlined entrypoint scripts.
+### 3. 📦 Modern Asset Pipeline (Shakapacker 9.7 + Webpack 5)
+- Migrated from deprecated `@rails/webpacker 5` (which depended on Webpack 4 and unmaintained Node polyfills) to **Shakapacker 9.7** and **Webpack 5.90+**.
+- Removed outdated Node.js legacy OpenSSL flags (`--openssl-legacy-provider`).
+- Modernized Babel configuration with standard `@babel/preset-env` and `@babel/preset-react`.
+- Updated binstubs (`bin/webpack`, `bin/webpack-dev-server`, `bin/shakapacker`) for compatibility with modern build environments.
+
+### 4. 🔒 Privacy, Session Isolation & Tracking Logic
+- **Visitor Isolation:** Restructured `visitor_token` handling to prevent session crosstalk and ensure links remain private to their creator.
+- **Strict URL Sanitization:** Hardened URL parsing and auto-prepends missing protocols (`https://`) safely.
+- **Unique Click Deduplication:** Implemented secure, HTTP-only cookie tracking to differentiate unique visitors from total clicks over a 24-hour window.
+- **QR Code Support:** Integrated instant SVG/PNG QR code preview and download for shortened URLs.
+
+### 5. 🐳 DevOps, CI/CD & Cloud Deployment
+- Replaced outdated CircleCI with **GitHub Actions CI** covering database preparation, asset compilation, and automated test execution.
+- Added **GitHub CodeQL** static analysis workflow for code scanning.
+- Designed a multi-stage **Dockerfile** with non-root security user (`rails:1000`) and Render deployment blueprint (`render.yaml`).
 
 ---
 
 ## ✨ Features
 
-- **⚡ Instant URL Shortening**: Paste any URL, auto-sanitizes missing protocols (auto-prepends `https://`), and generates short, clean links.
-- **📱 QR Code Generation**: Instant SVG/PNG QR code preview and download for any shortened link with one click.
-- **📊 Real-Time Analytics**: Tracks **Total Clicks** as well as **Unique Visitors** (deduplicated over a 24-hour window using secure HTTP-only cookies).
-- **🔒 Visitor Session Isolation**: Permanent cookie token (`visitor_token`) keeps your links private to your browser while supporting a toggle to view all public links.
-- **📌 Pinning System**: Pin your most frequently accessed links to the top of your dashboard.
-- **🔍 Live Search & Filter**: Real-time client-side search across original URLs and generated slugs.
-- **🎨 Modern Responsive UI**: Clean cards, Remixicon badges, high-contrast typography, and smooth transitions built with Tailwind CSS.
-- **🐳 Production Ready**: Fully containerized with multi-stage `Dockerfile`, `docker-compose.yml`, and `render.yaml` Blueprint.
+- **⚡ Instant URL Shortening**: Auto-sanitizes URLs and generates short, clean links.
+- **📱 QR Code Generation**: Downloadable QR code previews for every shortened link.
+- **📊 Real-Time Analytics**: Tracks **Total Clicks** and **Unique Visitors** (deduplicated over 24 hours).
+- **🔒 Visitor Session Isolation**: Links are scoped to your browser session with an optional public links view.
+- **📌 Pinning System**: Pin frequent links to the top of the table.
+- **🔍 Live Search & Filter**: Instant search across original URLs and generated slugs.
+- **🎨 Responsive UI**: Built with Tailwind CSS and Remixicon.
 
 ---
 
@@ -71,9 +77,9 @@ Shortly was created and modernized by **Sreedev Rajendran** to provide an ultra-
 |---|---|
 | **Backend** | Ruby 3.2, Rails 7.2.3.2, Puma 7.2.1 |
 | **Frontend** | React 17, React Router, Axios 1.8.2, Tailwind CSS 1.9, Remixicon |
-| **Asset Pipeline** | Shakapacker 9.7, Webpack 5.112, Babel 7.24 |
+| **Asset Bundler** | Shakapacker 9.7, Webpack 5.112, Babel 7.24 |
 | **Databases** | SQLite 2.9 (Development / Test), PostgreSQL (Production) |
-| **DevOps & CI** | Docker, Podman, GitHub Actions CI, CodeQL SAST, Render |
+| **DevOps & CI** | Docker, GitHub Actions CI, CodeQL SAST, Render |
 
 ---
 
@@ -82,14 +88,12 @@ Shortly was created and modernized by **Sreedev Rajendran** to provide an ultra-
 ### Option 1: Running with Docker / Podman (Recommended)
 
 ```bash
-# Clone the repository
 git clone https://github.com/sreedevrajendran/Shortly.git
 cd Shortly
 
-# Start with Docker Compose
 docker compose up --build
 ```
-Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+Open **[http://localhost:3000](http://localhost:3000)**.
 
 ---
 
@@ -99,58 +103,48 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 - Ruby 3.2+
 - Bundler (`gem install bundler`)
 - Node.js 20+ and Yarn (`npm install -g yarn`)
-- SQLite3 development headers
+- SQLite3 development packages
 
 #### Setup Steps
 ```bash
-# 1. Install Ruby gems
+# 1. Install dependencies
 bundle install
-
-# 2. Install JavaScript dependencies
 yarn install
 
-# 3. Setup database and run migrations
+# 2. Setup database
 bin/rails db:prepare
 
-# 4. Compile frontend assets
+# 3. Build assets
 bin/webpack
-# Alternatively for live rebuilds:
-npm run build:dev
 
-# 5. Start Rails server
+# 4. Start Rails server
 bin/rails server
 ```
 Visit **[http://localhost:3000](http://localhost:3000)**.
 
 ---
 
-## 🧪 Testing & Verification
+## 🧪 Testing
 
-Run the Rails test suite:
+Run the test suite:
 ```bash
 bin/rails test
 ```
 
-Precompile assets for production:
+Test asset precompilation:
 ```bash
 RAILS_ENV=production SECRET_KEY_BASE=dummy bin/rails assets:precompile
 ```
 
-Check code style:
-```bash
-bundle exec rubocop
-```
+---
+
+## 👥 Credits & Acknowledgments
+
+- **Original Creator:** [Akhil G Krishnan](https://github.com/akhilgkrishnan) — Original concept and implementation in [akhilgkrishnan/Shortly](https://github.com/akhilgkrishnan/Shortly).
+- **Fork Maintainer & Modernization:** [Sreedev Rajendran](https://github.com/sreedevrajendran) — Security vulnerability remediation, Rails 7.2 & Webpack 5 upgrades, visitor isolation, and Docker/CI pipeline.
 
 ---
 
-## 👤 Author
+## 📄 License Notice
 
-**Sreedev Rajendran**
-- GitHub: [@sreedevrajendran](https://github.com/sreedevrajendran)
-- Repository: [sreedevrajendran/Shortly](https://github.com/sreedevrajendran/Shortly)
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+This repository is forked from the upstream project [akhilgkrishnan/Shortly](https://github.com/akhilgkrishnan/Shortly). Please refer to the upstream repository for original licensing information.
