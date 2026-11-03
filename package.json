@@ -7,7 +7,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.0",
-    "axios": "^0.21.1",
+    "axios": "^0.34.0",
     "babel-plugin-js-logger": "^1.0.17",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "eslint-plugin-prettier": "^4.0.0",
@@ -34,7 +34,7 @@
     "husky": ">=6",
     "lint-staged": ">=10",
     "prettier": "^2.3.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^5.2.6"
   },
   "lint-staged": {
     "app/**/*.{html,md,js,jsx,json}": [
