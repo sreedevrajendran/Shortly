@@ -33,7 +33,7 @@ jobs:
 
       - name: Compile assets
         run: |
-          NODE_OPTIONS="--openssl-legacy-provider" bin/webpack
+          bin/webpack
 
       - name: Run Rails tests
         run: |
