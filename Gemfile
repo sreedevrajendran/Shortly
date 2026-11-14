@@ -44,7 +44,7 @@ group :development, :test do
 end
 
 # Database adapters
-gem "sqlite3", "~> 2.9.6"
+gem "sqlite3", "~> 2.10.2"
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
